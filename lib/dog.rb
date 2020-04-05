@@ -82,7 +82,6 @@ class Dog
       WHERE name = ?, breed = ?;
     SQL
     result = DB[:conn].execute(sql, name, breed)[0]
-    binding.pry
 
     if(result.empty?)
       # Create the new Dog instance
