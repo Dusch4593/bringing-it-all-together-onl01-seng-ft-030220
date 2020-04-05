@@ -81,7 +81,7 @@ class Dog
       FROM dogs 
       WHERE dogs.name = ? AND dogs.breed = ?;
     SQL
-    result = DB[:conn].execute(sql, name, breed)
+    result = DB[:conn].execute("SELECT * FROM dogs WHERE dogs.name = ? AND dogs.breed = ?", name, breed)
     
     result.empty? ? self.create(name: name, breed: breed) : dog = self.new_from_db(result[0])
     # if(result.empty?)
