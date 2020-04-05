@@ -83,14 +83,13 @@ class Dog
     SQL
     result = DB[:conn].execute(sql, name, breed)
     
-    if(result.empty?)
-      # Create the new Dog instance
-      self.create(name: name, breed: breed)
-    else 
-      # Return the instance that was found in the database
-      dog = self.new_from_db(result[0])
-
-    end
-    
+    result.empty? ? self.create(name: name, breed: breed) : dog = self.new_from_db(result[0])
+    # if(result.empty?)
+    #   # Create the new Dog instance
+    #   self.create(name: name, breed: breed)
+    # else 
+    #   # Return the instance that was found in the database
+    #   dog = self.new_from_db(result[0])
+    # end
   end
 end
