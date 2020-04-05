@@ -70,7 +70,8 @@ class Dog
       FROM dogs 
       WHERE dogs.id = ?;
     SQL
-    dog = DB[:conn].execute(sql, id)
+    result = DB[:conn].execute(sql, id)[0]
+    new_dog = self.new_from_db(result)
     binding.pry
   end
 end
