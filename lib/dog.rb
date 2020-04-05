@@ -88,7 +88,6 @@ class Dog
       self.create(name: name, breed: breed)
     else 
       # Return the instance that was found in the database
-      result
     end
     
   end
