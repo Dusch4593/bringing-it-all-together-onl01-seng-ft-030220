@@ -79,7 +79,8 @@ class Dog
     sql = <<-SQL
       SELECT * 
       FROM dogs 
-      WHERE name = ?, breed = ?;
+      WHERE name = ?
+      WHERE breed = ?;
     SQL
     result = DB[:conn].execute(sql, name, breed)[0]
 
