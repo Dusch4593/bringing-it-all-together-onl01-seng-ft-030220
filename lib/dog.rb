@@ -60,6 +60,7 @@ class Dog
   end
   
   def self.new_from_db(row) 
+    # returns an array representing the newly created Dog data
     
   end
 end
