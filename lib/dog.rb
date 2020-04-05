@@ -75,10 +75,24 @@ class Dog
   end
   
   def self.find_or_create_by(name: , breed: )
+    # run a query using the keyword arguments provided
+    sql = <<-SQL
+      SELECT * 
+      FROM dogs 
+      WHERE id = ?;
+    SQL
+    result = DB[:conn].execute(sql, name, breed)[0]
+    
+    
     # if the dog instance already exists
     #   return that dog instance 
     # else
     #   create a new Dog instance using self.create(name: , breed: )
+    if(result.empty?)
+      
+    else 
+      
+    end
     
   end
 end
