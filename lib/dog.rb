@@ -89,7 +89,7 @@ class Dog
     else 
       # Return the instance that was found in the database
       dog = self.new_from_db(result[0])
-      binding.pry
+
     end
     
   end
