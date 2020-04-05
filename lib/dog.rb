@@ -75,6 +75,10 @@ class Dog
   end
   
   def self.find_or_create_by(name: , breed: )
+    # if the dog instance already exists
+    #   return that dog instance 
+    # else
+    #   create a new Dog instance using self.create(name: , breed: )
     
   end
 end
