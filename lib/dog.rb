@@ -82,7 +82,7 @@ class Dog
       WHERE dogs.name = ? AND dogs.breed = ?;
     SQL
     result = DB[:conn].execute(sql, name, breed)
-    binding.pry 
+    
     if(result.empty?)
       # Create the new Dog instance
       self.create(name: name, breed: breed)
