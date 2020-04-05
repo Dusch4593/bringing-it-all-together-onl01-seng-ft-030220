@@ -88,7 +88,7 @@ class Dog
       self.create(name: name, breed: breed)
     else 
       # Return the instance that was found in the database
-      
+      dog = self.new_from_db(result)
     end
     
   end
