@@ -82,16 +82,13 @@ class Dog
       WHERE id = ?;
     SQL
     result = DB[:conn].execute(sql, name, breed)[0]
-    
-    
-    # if the dog instance already exists
-    #   return that dog instance 
-    # else
-    #   create a new Dog instance using self.create(name: , breed: )
+
     if(result.empty?)
-      
+      # Create the new Dog instance
+      self.create(name: name, breed: breed)
     else 
-      
+      # Return the instance that was found in the database
+      result
     end
     
   end
