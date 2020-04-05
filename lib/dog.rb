@@ -81,8 +81,8 @@ class Dog
       FROM dogs 
       WHERE dogs.name = ? AND dogs.breed = ?;
     SQL
-    result = DB[:conn].execute(sql, name, breed)[0]
-
+    DB[:conn].execute(sql, name, breed)[0]
+    
     if(result.empty?)
       # Create the new Dog instance
       self.create(name: name, breed: breed)
