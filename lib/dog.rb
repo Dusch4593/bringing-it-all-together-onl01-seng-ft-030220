@@ -75,21 +75,16 @@ class Dog
   end
   
   def self.find_or_create_by(name: , breed: )
-    # run a query using the keyword arguments provided
-    sql = <<-SQL
-      SELECT * 
-      FROM dogs 
-      WHERE dogs.name = ? AND dogs.breed = ?;
-    SQL
+    # run a query using the keyword arguments provided and store in result
     result = DB[:conn].execute("SELECT * FROM dogs WHERE dogs.name = ? AND dogs.breed = ?", name, breed)
     
+    # if the results are empty, create a new Dog; otherwise, return the correct dog
     result.empty? ? self.create(name: name, breed: breed) : dog = self.new_from_db(result[0])
-    # if(result.empty?)
-    #   # Create the new Dog instance
-    #   self.create(name: name, breed: breed)
-    # else 
-    #   # Return the instance that was found in the database
-    #   dog = self.new_from_db(result[0])
-    # end
+  end
+  
+  def self.find_by_name(name)
+    result = DB[:conn].execute("SELECT * FROM dogs WHERE dogs.name = ?", name)
+    
+    dog = self.new_from_db(result)
   end
 end
